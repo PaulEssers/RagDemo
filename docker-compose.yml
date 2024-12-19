@@ -1,0 +1,13 @@
+services:
+  model-server:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    runtime: nvidia
+    volumes:
+      # Mount the local model directory into the container
+      - /root/huggingface:/app/models
+    environment:
+      # Optional: Pass environment variables if needed
+      - MODEL_DIR=llama3_1b
